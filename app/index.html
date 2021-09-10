@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Google Phone Gallery</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="lib/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src='lib/checklist-model/checklist-model/checklist-model.js'></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel = "stylesheet"
+         href = "lib/bower_components/angular-material/angular-material.min.css">
+      <script src = "lib/bower_components/angular-animate/angular-animate.min.js"></script>
+      <script src = "lib/bower_components/angular-aria/angular-aria.min.js"></script>
+      <script src = "lib/bower_components/angular-messages/angular-messages.min.js"></script>
+      <script src = "lib/bower_components/angular-material/angular-material.min.js"></script>
+  </head>
+  <body ng-controller="PhoneListController">
+  	<h3>Cost</h3>
+	<div ng-repeat="type in costFeatureTypes track by $index">
+		<input type="checkbox" checklist-model="selectedTypes.cost" checklist-value="type" id="cost-type-{{$index}}">
+		<label for="cost-type-{{$index}}"> {{type}} </label>
+	</div>
+	<h3>Display</h3>
+	<div ng-repeat="type in displayFeatureTypes track by $index">
+		<input type="checkbox" checklist-model="selectedTypes.display" checklist-value="type" id="display-type-{{$index}}">
+		<label for="display-type-{{$index}}"> {{type}} </label>
+	</div>
+	
+
+	<md-button class = "md-primary md-raised"
+       ng-click = "getMatches($event)" flex = "100"  flex-gt-md = "auto">
+       Get Matches
+    </md-button>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  </body>
+</html>
